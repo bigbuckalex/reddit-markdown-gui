@@ -1,14 +1,13 @@
 html {
     justify-content: center;
+    background-color: whitesmoke;
 }
 
 body {
     height: 100vh;
     max-width: 845px;
     padding: 0;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
@@ -20,8 +19,12 @@ p {
 
 button {
     font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: lightslategray;
+    border: 1px solid darkslategray;
+    border-radius: 5px;
 }
 
+/* Font Awesome icons */
 .fa-solid {
     font-size: 20px;
 }
@@ -29,33 +32,39 @@ button {
 .toolbar-btn {
     flex-grow: 1;
     min-height: 35px;
-    margin: 5px;
+    margin: 0 5px;
 }
 
 #toolbar {
-    margin: 20px;
+    margin: 0 20px;
     display: flex;
 }
 
 #instructions {
-    background-color: red;
-    margin: 20px;
+    margin: 20px 20px 0;
     text-align: center;
+    line-height: 1.5;
 }
 
 #input {
-    background-color: blue;
+    /* lightslategray, but lighter */
+    background-color: hsl(210, 14%, 90%);
     flex-grow: 1;
     margin: 20px;
+    border: 1px solid slategray;
+    border-radius: 5px;
 }
 
 #markdown {
-    background-color: gray;
+    background-color: lightslategray;
     flex-grow: 1;
     margin: 20px;
+    border: 1px solid darkslategray;
+    border-radius: 5px;
 }
 
 #copyMarkdown {
-    margin: 20px;
+    margin: 0 auto 20px;
     min-height: 35px;
+    width: 50%;
 }
