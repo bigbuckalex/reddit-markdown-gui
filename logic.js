@@ -1,24 +1,36 @@
-var isItalic = false;
-var isBold = false;
-var isStrike = false;
-var isSuper = false;
+let isItalic = false;
+let isBold = false;
+let isStrike = false;
+let isSuper = false;
 
-function updateMarkdown() {
-    console.log(document.getElementById("input").value);
-    document.getElementById("markdown").value = document.getElementById("input").value;
+function updateMarkdown(e) {
+    console.log(e);
+    // alphanumeric character
+    if (e.inputType == "insertText") {
+        document.getElementById("markdown").value += e.data;
+    }
+    // backspace
+    else if (e.inputType == "deleteContentBackward") {
+        document.getElementById("markdown").value = document.getElementById("markdown").value.slice(0, -1);
+    }
+    // enter
+    else if (e.inputType == "insertLineBreak") {
+        document.getElementById("markdown").value += "\n";
+    }
 }
 
-function toggleItalic() {
-    if (isItalic) {
-        console.log("italic off");
-        document.getElementById("markdown").value += "*";
-        isItalic = false;
-    }
-    else {
+function toggleItalic(e) {
+    e.preventDefault();
+    // turning italic on
+    if (!isItalic) {
         console.log("italic on");
-        console.log("italic off");
-        document.getElementById("markdown").value += "*";
-        isItalic = false;
         isItalic = true;
+        document.getElementById("markdown").value += "*";
+    }
+    // turning italic off
+    else {
+        console.log("italic off");
+        isItalic = false;
+        document.getElementById("markdown").value += "*";
     }
 }

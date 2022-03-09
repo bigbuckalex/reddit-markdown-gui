@@ -11,9 +11,9 @@
 </head>
 <body>
     <p id="instructions">Type your comment, format it however you like, then copy the markdown generated below and paste it into Reddit!</p>
-    <textarea autofocus style="resize: none;" placeholder="Type your comment here" oninput="updateMarkdown()" id="input"></textarea>
+    <textarea autofocus style="resize: none;" placeholder="Type your comment here" oninput="updateMarkdown(event)" id="input"></textarea>
     <section id="toolbar">
-        <button onclick="toggleItalic()" class="toolbar-btn" id="italic"><i class="fa-solid fa-italic"></i></button>
+        <button onmousedown="toggleItalic(event)" class="toolbar-btn" id="italic"><i class="fa-solid fa-italic"></i></button>
         <button class="toolbar-btn" id="bold"><i class="fa-solid fa-bold"></i></button>
         <button class="toolbar-btn" id="strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
         <button class="toolbar-btn" id="spoiler"><i class="fa-solid fa-eye"></i></button>
