@@ -4,10 +4,7 @@ let isStrike = false;
 let isSuper = false;
 
 function updateMarkdown(e) {
-
     let markdown = document.getElementById("markdown");
-
-    console.log(e); 
     // alphanumeric character
     if (e.inputType == "insertText") {
         if (isItalic && isBold) {
@@ -24,7 +21,33 @@ function updateMarkdown(e) {
     }
     // backspace
     else if (e.inputType == "deleteContentBackward") {
-        markdown.value = markdown.value.slice(0, -1);
+        if (isItalic && isBold) {
+            if (markdown.value.substring(markdown.value.length - 6) == "******") {
+                markdown.value = markdown.value.substring(0, markdown.value.length - 7);
+                toggleBold(e);
+                toggleItalic(e);
+            }
+            else
+                markdown.value = markdown.value.substring(0, markdown.value.length - 4) + "***";
+        }
+        else if (isItalic) {
+            if (markdown.value.substring(markdown.value.length - 2) == "**") {
+                markdown.value = markdown.value.substring(0, markdown.value.length - 3);
+                toggleItalic(e);
+            }
+            else
+                markdown.value = markdown.value.substring(0, markdown.value.length - 2) + "*";            
+        }
+        else if (isBold) {
+            if (markdown.value.substring(markdown.value.length - 4) == "****") {
+                markdown.value = markdown.value.substring(0, markdown.value.length - 5);
+                toggleBold(e);
+            }
+            else
+                markdown.value = markdown.value.substring(0, markdown.value.length - 3) + "**";            
+        }
+        else
+            markdown.value = markdown.value.substring(0, markdown.value.length - 1);
     }
     // enter
     else if (e.inputType == "insertLineBreak") {
