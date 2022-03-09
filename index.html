@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reddit Comment GUI</title>
     <link rel="stylesheet" href="style.css">
+    <script src="logic.js"></script>
     <script src="https://kit.fontawesome.com/ed894a3b79.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <p id="instructions">Type your comment, format it however you like, then copy the markdown generated below and paste it into Reddit!</p>
-    <p id="input">Type your comment here</p>
+    <textarea autofocus style="resize: none;" placeholder="Type your comment here" oninput="updateMarkdown()" id="input"></textarea>
     <section id="toolbar">
-        <button class="toolbar-btn" id="italic"><i class="fa-solid fa-italic"></i></button>
+        <button onclick="toggleItalic()" class="toolbar-btn" id="italic"><i class="fa-solid fa-italic"></i></button>
         <button class="toolbar-btn" id="bold"><i class="fa-solid fa-bold"></i></button>
         <button class="toolbar-btn" id="strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
         <button class="toolbar-btn" id="spoiler"><i class="fa-solid fa-eye"></i></button>
         <button class="toolbar-btn" id="superscript"><i class="fa-solid fa-superscript"></i></button>
         <button class="toolbar-btn" id="code"><i class="fa-solid fa-code"></i></button>
     </section>
-    <p id="markdown">Reddit markdown will appear here as you type</p>
+    <textarea disabled style="resize: none;" id="markdown" placeholder="Reddit markdown will appear here as you type"></textarea>
     <button id="copyMarkdown">Copy Markdown</button>
 </body>
 </html>
