@@ -46,12 +46,16 @@ function updateMarkdown(e) {
             else
                 markdown.value = markdown.value.substring(0, markdown.value.length - 3) + "**";            
         }
+        else if (markdown.value.substring(markdown.value.length - 2) == "\n\n") {
+            markdown.value = markdown.value.substring(0, markdown.value.length - 2);
+        }
         else
             markdown.value = markdown.value.substring(0, markdown.value.length - 1);
     }
     // enter
     else if (e.inputType == "insertLineBreak") {
-        markdown.value += "\n";
+        // Reddit requires 2 enters for a new line
+        markdown.value += "\n\n";
     }
 }
 
